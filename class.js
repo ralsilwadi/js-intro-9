@@ -1,3 +1,8 @@
-let l1 = [1,2,3,4,5]
-let l2 = l1
-console.log(l1, l2)
+for (let i = 50; i >= 0; i -= 10){
+    if (i > 0) {
+    process.stdout.write(`${i}, `);
+    }
+    else {
+        process.stdout.write(`${i} `);
+    }
+}
