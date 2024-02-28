@@ -47,7 +47,7 @@ starting from 0 to 7 (both inclusive).
 */
 
 for (let i = 0; i <= 7; i++) {
-        console.log(i**2)
+        console.log(`The square of ${i} is ${i**2}`)
 }
 console.log('==========================================================\n')
 //Task 5
@@ -83,10 +83,11 @@ For example:
 
 let r1 = Math.floor(Math.random() * 10) + 1
 console.log(r1)
-for (i = (r1 - 1); i >= 1; i--) {
-    r1 = r1 * i
+let factorial = 1;
+for (let i = r1; i >= 1; i--) {
+    factorial *= i;
 }
-console.log(r1)
+console.log(factorial)
 console.log('==========================================================\n')
 //Task 7
 /*
@@ -106,17 +107,34 @@ Expected Output:
 The random number is {randomNumber} and it took 
 {attempts} attempt/s to generate it.
 */
+
 let r7 = 0
 let attempts = 0
 do {
     r7 = Math.floor(Math.random() * 100) + 1
     attempts += 1
   } while (r7 % 5 !== 0);
-  console.log(`The random number is ${r7} and it took 
+console.log(`The random number is ${r7} and it took 
 ${attempts} attempt/s to generate it.`)
-console.log('==========================================================\n')
-// Task 8
 
+console.log('==========================================================\n')
+//Task 8
+/*
+Requirement:
+-Create an array that stores countries below.
+Germany, Argentina, Ukraine, Romania
+
+THEN:
+-Output the entire array
+-Ouput the entire array sorted lexicographically
+
+Expected Result:
+['Germany', 'Argentina', 'Ukraine', 'Romania' ]
+[ 'Argentina', 'Germany', 'Romania', 'Ukraine' ]
+*/
+let arr8 = ['Germany', 'Argentina', 'Ukraine', 'Romania']
+console.log(arr8)
+console.log(arr8.sort())
 
 console.log('==========================================================\n')
 //Task 9
@@ -136,9 +154,9 @@ Expected Result:
 true
 */
 
-arr1 = [ 'Scooby Doo', 'Snoopy', 'Blue', 'Pluto', 'Dino', 'Sparky' ]
-console.log(arr1)
-console.log(arr1.includes('Pluto'))
+let arr9 = [ 'Scooby Doo', 'Snoopy', 'Blue', 'Pluto', 'Dino', 'Sparky' ]
+console.log(arr9)
+console.log(arr9.includes('Pluto'))
 console.log('==========================================================\n')
 
 
@@ -159,7 +177,10 @@ Expected Result:
 false
 */
 
-
+let arr10 = [ `Garfield`, `Tom`, `Sylvester`, `Azrael` ]
+console.log(arr10.sort())
+console.log(arr10.includes('Garfield') && arr10.includes('Felix'))
+console.log('==========================================================\n')
 
 //Task 11
 /*
@@ -178,6 +199,11 @@ Expected Result:
 15.75
 */
 
+let arr11 = [ 10.5, 20.75, 70, 80, 15.75 ]
+console.log(arr11)
+for (i = 0; i <= arr11.length - 1; i++) {
+    console.log(arr11[i])
+}
 
 //Task 12
 /*
@@ -198,9 +224,23 @@ Elements starting with 'B' or 'P' = 5
 Elements having 'book' or 'pen' = 4
 */
 
-// console.log(objs)
-// console.log(`Elements starting with 'B' or 'P' = ${countBorP}`)
-// console.log(`Elements having 'book' or 'pen' = ${countBookOrPen}`)
+let objs = ['Pen', 'notebook', 'Book', 'paper', 'bag', 'pencil', 'Ruler'];
+console.log(objs);
+
+let countBorP = 0;
+let countBookOrPen = 0;
+for (let i = 0; i <= objs.length - 1; i++) {
+    if (objs[i][0].toLowerCase().includes('b') || objs[i][0].toLowerCase().includes('p')) {
+        countBorP++;
+    }
+
+    if (objs[i].toLowerCase().includes('book') || objs[i].toLowerCase().includes('pen')) {
+        countBookOrPen++;
+    }
+}
+console.log(`Elements starting with 'B' or 'P' = ${countBorP}`);
+console.log(`Elements having 'book' or 'pen' = ${countBookOrPen}`);
+
 
 //Task 13
 /*
