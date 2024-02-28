@@ -201,8 +201,8 @@ Expected Result:
 
 let arr11 = [ 10.5, 20.75, 70, 80, 15.75 ]
 console.log(arr11)
-for (i = 0; i <= arr11.length - 1; i++) {
-    console.log(arr11[i])
+for (let i of arr11) {
+    console.log(i)
 }
 
 //Task 12
@@ -229,18 +229,17 @@ console.log(objs);
 
 let countBorP = 0;
 let countBookOrPen = 0;
-for (let i = 0; i <= objs.length - 1; i++) {
-    if (objs[i][0].toLowerCase().includes('b') || objs[i][0].toLowerCase().includes('p')) {
+for (let i of objs) {
+    if (i[0].toLowerCase() === 'b' || i[0].toLowerCase() === 'p') {
         countBorP++;
     }
 
-    if (objs[i].toLowerCase().includes('book') || objs[i].toLowerCase().includes('pen')) {
+    if (i.toLowerCase().includes('book') || i.toLowerCase().includes('pen')) {
         countBookOrPen++;
     }
 }
 console.log(`Elements starting with 'B' or 'P' = ${countBorP}`);
 console.log(`Elements having 'book' or 'pen' = ${countBookOrPen}`);
-
 
 //Task 13
 /*
