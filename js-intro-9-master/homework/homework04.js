@@ -204,6 +204,7 @@ console.log(arr11)
 for (let i of arr11) {
     console.log(i)
 }
+console.log('==========================================================\n')
 
 //Task 12
 /*
@@ -240,6 +241,7 @@ for (let i of objs) {
 }
 console.log(`Elements starting with 'B' or 'P' = ${countBorP}`);
 console.log(`Elements having 'book' or 'pen' = ${countBookOrPen}`);
+console.log('==========================================================\n')
 
 //Task 13
 /*
@@ -259,11 +261,21 @@ Elements that are more than 10 = 5
 Elements that are less than 10 = 4
 Elements that are 10 = 2
 */
+arr13 = [ 3, 5, 7, 10, 0, 20, 17, 10, 23, 56, 78 ]
+let moreThan10 = 0;
+let lessThan10 = 0;
+let is10 = 0;
 
-
-// console.log(`Elements that are more than 10 = ${moreThan10}`)
-// console.log(`Elements that are less than 10 = ${lessThan10}`)
-// console.log(`Elements that are 10 = ${is10}`)
+for (let i in arr13) {
+    if (arr13[i] > 10) moreThan10++
+    else if (arr13[i] < 10) lessThan10++
+    else is10++
+}
+console.log(arr13)
+console.log(`Elements that are more than 10 = ${moreThan10}`)
+console.log(`Elements that are less than 10 = ${lessThan10}`)
+console.log(`Elements that are 10 = ${is10}`)
+console.log('==========================================================\n')
 
 //Task 14
 /*
@@ -283,13 +295,20 @@ Expected Result:
 2nd array is =  [ 9, 3, 67, 1, 0 ]
 3rd array is =  [ 9, 8, 67, 1, 2 ]
 */
+let ar1 = [ 5, 8, 13, 1, 2 ]
+let ar2 = [ 9, 3, 67, 1, 0 ]
+let ar3 = []
 
+for (let i in ar1) {
+    if (ar1[i] >= ar2[i]) ar3.push(ar1[i])
+    else ar3.push(ar2[i])
+}
 
-// console.log(`1st array is = ${arr1}`);
-// console.log(`2nd array is = ${arr2}`);
-// console.log(`3rd array is = ${arr3}`);
-// console.log(arr3)
-
+console.log(`1st array is = [${ar1}]`);
+console.log(`2nd array is = [${ar2}]`);
+console.log(`3rd array is = [${ar3}]`);
+console.log(ar3)
+console.log('==========================================================\n')
 //Task 15
 /*
 Requirement:
@@ -311,16 +330,28 @@ firstDuplicate([ 1, 2, 3]) -> -1
 firstDuplicate([ 'foo', 'abc', '123', 'bar' ])  -> -1
 */
 
-// function firstDuplicate(arr){
-    
-// }
+function firstDuplicate(arr){
+    for (let i in arr) {
+        let ct = 0;
+        for (let j in arr) {
+            if (arr[i] === arr[j]) {
+                ct++
+            }
+            if (ct === 2) {
+                return arr[i]
+            }
+        }
+    }
+    return -1
+}
 
-// console.log(firstDuplicate([ 3, 7, 10, 0, 3, 10 ]))
-// console.log(firstDuplicate([ 5, 7, 7, 0, 5, 10 ]))
-// console.log(firstDuplicate([ 5, '5', 3, 7, 4 ]))
-// console.log(firstDuplicate([ 123, 'abc', '123', 3, 'abc' ]))
-// console.log(firstDuplicate([ 1, 2, 3]))
-// console.log(firstDuplicate([ 'foo', 'abc', '123', 'bar' ]))
+console.log(firstDuplicate([ 3, 7, 10, 0, 3, 10 ]))
+console.log(firstDuplicate([ 5, 7, 7, 0, 5, 10 ]))
+console.log(firstDuplicate([ 5, '5', 3, 7, 4 ]))
+console.log(firstDuplicate([ 123, 'abc', '123', 3, 'abc' ]))
+console.log(firstDuplicate([ 1, 2, 3]))
+console.log(firstDuplicate([ 'foo', 'abc', '123', 'bar' ]))
+console.log('==========================================================\n')
 
 //Task 16
 /*
@@ -341,26 +372,29 @@ getDuplicates(['A', 'foo', '12' , 12, 'bar', 'a', 'a', 'foo' ]) -> [ 'foo', 'a' 
 getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ]) -> [ ]
 */
 
-// function getDuplicates(arr){
-//     let duplicates = [];
+function getDuplicates(arr){
+    let dupes = []
+    for (let i in arr) {
+        let ct = 0;
+        for (let j in arr) {
+            if (arr[i] === arr[j] && !dupes.includes(arr[i])) {
+                ct++
+            }
+            if (ct === 2) {
+                dupes.push(arr[i])
+                break
+            }
+        }
+    }
+    return dupes
+}
 
-//     for(let i = 0; i < arr.length; i++){
-//         for(let j = i+1; j < arr.length; j++){
-//             if(arr[i] === arr[j] && !duplicates.includes(arr[i])) duplicates.push(arr[i])
-//         }
-//     }
-//     return duplicates;
-// }
 
-// function getDuplicates(arr){
-    
-// }
-
-
-// console.log(getDuplicates([ 0, -4, -7, 0, 5, 10, 45, -7, 0 ]))
-// console.log(getDuplicates([ 1, 2, 5, 0, 7 ]))
-// console.log(getDuplicates(['A', 'foo', '12' , 12, 'bar', 'a', 'a', 'foo' ]))
-// console.log(getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ]))
+console.log(getDuplicates([ 0, -4, -7, 0, 5, 10, 45, -7, 0 ]))
+console.log(getDuplicates([ 1, 2, 5, 0, 7 ]))
+console.log(getDuplicates(['A', 'foo', '12' , 12, 'bar', 'a', 'a', 'foo' ]))
+console.log(getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ]))
+console.log('==========================================================\n')
 //Task 17
 /*
 Requirement:
@@ -379,16 +413,22 @@ reverseStringWords("")  -> ""
 reverseStringWords("    ")  -> ""
 */
 
-// function reverseStringWords(str){
-   
-// }
+function reverseStringWords(str){
+   str = str.trim()
+   let arr = str.split(' ')
+   for (let i in arr) {
+    arr[i] = arr[i].split('').reverse().join('');
+   }
+   str = arr.join(' ')
+   return str
+}
 
-// console.log(reverseStringWords("Hello World"))
-// console.log(reverseStringWords("I like JavaScript"))
-// console.log(reverseStringWords("Hello"))
-// console.log(reverseStringWords(""))
-// console.log(reverseStringWords("    "))
-
+console.log(reverseStringWords("Hello World"))
+console.log(reverseStringWords("I like JavaScript"))
+console.log(reverseStringWords("Hello"))
+console.log(reverseStringWords(""))
+console.log(reverseStringWords("    "))
+console.log('==========================================================\n')
 
 //Task 18
 /*
@@ -411,15 +451,21 @@ getEvens(4, 4) -> [ 4 ]
 getEvens(3, 3) -> [ ]
 */
 
-// function getEvens(num1, num2){
-    
-// }
+function getEvens(n1, n2){
+    let arr = []
+    let smallNum = (Math.min(n1, n2))
+    let bigNum = (Math.max(n1, n2))
+    for (i = smallNum; i <= bigNum; i++) {
+        if (i % 2 === 0) arr.push(i)
+    }
+    return arr
+}
 
-// console.log(getEvens(2, 7))
-// console.log(getEvens(17, 5))
-// console.log(getEvens(4, 4))
-// console.log(getEvens(3, 3))
-
+console.log(getEvens(2, 7))
+console.log(getEvens(17, 5))
+console.log(getEvens(4, 4))
+console.log(getEvens(3, 3))
+console.log('==========================================================\n')
 //Task 19
 /*
 Requirement:
@@ -440,21 +486,37 @@ getMultipleOf5(5, 5) -> [ 5 ]
 getMultipleOf5(2, 4) -> [ ]
 */
 
-// function getMultipleOf5(num1, num2){
-    
-// }
+function getMultipleOf5(n1, n2){
+    let arr = []
+    let smallNum = (Math.min(n1, n2))
+    let bigNum = (Math.max(n1, n2))
+    for (i = smallNum; i <= bigNum; i++) {
+        if (i % 5 === 0) arr.push(i)
+    }
+    return arr
+}
 
-// console.log(getMultipleOf5(3, 17))
-// console.log(getMultipleOf5(23, 5))
-// console.log(getMultipleOf5(5, 5))
-// console.log(getMultipleOf5(2, 4))
+console.log(getMultipleOf5(3, 17))
+console.log(getMultipleOf5(23, 5))
+console.log(getMultipleOf5(5, 5))
+console.log(getMultipleOf5(2, 4))
+console.log('==========================================================\n')
 
-
-//Task 20 
-// const fizzBuzz = (num1, num2) => {
-    
-// }
-// fizzBuzz(13, 18);
-// fizzBuzz(12, 5);
-// fizzBuzz(5, 5);
-// fizzBuzz(9, 6);
+// Task 20 
+function fizzBuzz (n1, n2) {
+    let arr = []
+    let smallNum = (Math.min(n1, n2))
+    let bigNum = (Math.max(n1, n2))
+    for (i = smallNum; i <= bigNum; i++) {
+        if (i % 5 === 0 && i % 3 === 0) arr.push('FizzBuzz')
+        else if (i % 5 === 0) arr.push('Buzz')
+        else if (i % 3 === 0) arr.push('Fizz')
+        else arr.push(i)
+    }
+    str = arr.join(' | ')
+    return str
+}
+console.log(fizzBuzz(13, 18))
+console.log(fizzBuzz(12, 5))
+console.log(fizzBuzz(5, 5))
+console.log(fizzBuzz(9, 6))
