@@ -307,7 +307,6 @@ for (let i in ar1) {
 console.log(`1st array is = [${ar1}]`);
 console.log(`2nd array is = [${ar2}]`);
 console.log(`3rd array is = [${ar3}]`);
-console.log(ar3)
 console.log('==========================================================\n')
 //Task 15
 /*
@@ -332,18 +331,11 @@ firstDuplicate([ 'foo', 'abc', '123', 'bar' ])  -> -1
 
 function firstDuplicate(arr) {
     for (let i in arr) {
-        let ct = 0;
-        for (let j in arr) {
-            if (arr[i] === arr[j]) {
-                ct++
-            }
-            if (ct === 2) {
-                return arr[i]
-            }
-        }
+        if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) return arr[i];
     }
-    return -1
+    return -1;
 }
+
 
 console.log(firstDuplicate([3, 7, 10, 0, 3, 10]))
 console.log(firstDuplicate([5, 7, 7, 0, 5, 10]))
