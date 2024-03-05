@@ -7,3 +7,4 @@ function generateRandomNumber(a, b) {
 
 // Exporting your reusable methods
 module.exports.generateRandomNumber = generateRandomNumber;
+// const {generateRandomNumber} = require('/Users/ralsilwadi/Desktop/js-intro-9-rabe/js-intro-9-master/utils/MathHelper.js')

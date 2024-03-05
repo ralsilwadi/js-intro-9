@@ -1,8 +1,7 @@
-const {generateRandomNumber} = require('/Users/ralsilwadi/Desktop/js-intro-9-rabe/js-intro-9-master/utils/MathHelper.js')
-
-const numbers = [3, 4, 7, 3, 2, 2, 7];
-let product = 1
-for (i = 0; i < numbers.length; i++) {
-    if (i % 2 !== 0) product *= numbers[i]
+const nums = [-1, 1, 3, 0, 2, 6, 8];
+for (let num of nums) {
+    if (num % 2 === 0) {
+        console.log(num)
+        break
+    }
 }
-console.log(product)
