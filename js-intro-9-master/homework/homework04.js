@@ -367,16 +367,7 @@ getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ]) -> [ ]
 function getDuplicates(arr) {
     let dupes = []
     for (let i in arr) {
-        let ct = 0;
-        for (let j in arr) {
-            if (arr[i] === arr[j] && !dupes.includes(arr[i])) {
-                ct++
-            }
-            if (ct === 2) {
-                dupes.push(arr[i])
-                break
-            }
-        }
+        if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i]) && !dupes.includes(arr[i])) dupes.push(arr[i]);
     }
     return dupes
 }
