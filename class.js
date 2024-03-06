@@ -1,7 +1,8 @@
-const nums = [-1, 1, 3, 0, 2, 6, 8];
-for (let num of nums) {
-    if (num % 2 === 0) {
-        console.log(num)
-        break
+const cities = ['Berlin', 'Rome', 'Chicago', 'Kiev', 'Istanbul', 'Tokyo'];
+let iInCity = []
+for (const city of cities) {
+    if (city.toLowerCase().includes('i')) {
+        iInCity.push(city)
     }
 }
+console.log(iInCity)

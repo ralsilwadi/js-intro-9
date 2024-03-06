@@ -398,9 +398,9 @@ reverseStringWords("    ")  -> ""
 
 function reverseStringWords(str) {
     str = str.trim()
-    let arr = str.split(' ')
-    for (let i in arr) {
-        arr[i] = arr[i].split('').reverse().join('');
+    str.split(' ')
+    for (let i in str) {
+        str[i] = str[i].split('').reverse().join('');
     }
     str = arr.join(' ')
     return str
@@ -476,6 +476,7 @@ function getMultipleOf5(n1, n2) {
     for (i = smallNum; i <= bigNum; i++) {
         if (i % 5 === 0) arr.push(i)
     }
+    if (n1>n2) arr.reverse()
     return arr
 }
 
