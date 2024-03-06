@@ -398,11 +398,11 @@ reverseStringWords("    ")  -> ""
 
 function reverseStringWords(str) {
     str = str.trim()
-    str.split(' ')
+    str = str.split(' ')
     for (let i in str) {
         str[i] = str[i].split('').reverse().join('');
     }
-    str = arr.join(' ')
+    str = str.join(' ')
     return str
 }
 
