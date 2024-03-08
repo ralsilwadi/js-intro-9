@@ -133,6 +133,8 @@ console.log(countMultipleWords([ ]) )
 //  Task 9
 console.log('==========================================================\nTask 9:\n')
 
+// const count3OrLess = (str) => str.trim().split(' ').reduce((count, element) => element.length <= 3 && element.length > 0 ? count + 1 : count, 0);
+
 function count3OrLess(str) {
     let arr = str.trim().split(' ')
     let lessThan3Count = 0
@@ -190,9 +192,7 @@ console.log(add([-5, 6, -3, 11], [5, -6, 3, -11]) )
 //  Task 12
 console.log('==========================================================\nTask 12:\n')
 
-function removeExtraSpaces(str) {
-    return str.trim().split(' ').filter((element) => element !== '').join(' ')
-}
+const removeExtraSpaces = (str) => str.trim().split(' ').filter((element) => element !== '').join(' ');
 
 console.log(removeExtraSpaces("Hello") )
 console.log(removeExtraSpaces("      Hello    World     ") )
