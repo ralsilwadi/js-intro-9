@@ -1,15 +1,15 @@
 //  Task 1
 console.log('==========================================================\nTask 1:\n')
 
-// function countPos(nums) {
-//     let posCount = 0
-//     for (const num of nums) {
-//         if (num > 0) posCount++
-//     }
-//     return posCount
-// }
+function countPos(nums) {
+    let posCount = 0
+    for (const num of nums) {
+        if (num > 0) posCount++
+    }
+    return posCount
+}
 
-const countPos = (nums) => nums.reduce((count, num) => num > 0 ? count + 1 : count, 0);
+// const countPos = (nums) => nums.reduce((count, num) => num > 0 ? count + 1 : count, 0);
 
 console.log(countPos([-45, 0, 0, 34, 5, 67]) )
 console.log(countPos([-23, -4, 0, 2, 5, 90, 123]) )
@@ -193,6 +193,10 @@ console.log(add([-5, 6, -3, 11], [5, -6, 3, -11]) )
 
 //  Task 12
 console.log('==========================================================\nTask 12:\n')
+
+// function removeExtraSpaces(str) {
+//     return str.trim().split(' ').filter((element) => element !== '').join(' ')
+// }
 
 const removeExtraSpaces = (str) => str.trim().split(' ').filter((element) => element !== '').join(' ');
 
