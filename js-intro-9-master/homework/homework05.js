@@ -1,3 +1,50 @@
+function isDigit(char) {
+    let charAscii = char.charCodeAt(0);
+
+    return 48 <= charAscii && charAscii <= 57;
+}
+
+
+function isSpace(char) {
+    let charAscii = char.charCodeAt(0);
+
+    return charAscii === 32;
+}
+
+
+function isUpperCase(char) {
+    let charAscii = char.charCodeAt(0);
+
+    return 65 <= charAscii && charAscii <= 90;
+}
+
+
+function isLowerCase(char) {
+    let charAscii = char.charCodeAt(0);
+
+    return 97 <= charAscii && charAscii <= 122;
+}
+
+
+function isLetter(char) {
+    return isUpperCase(char) || isLowerCase(char);
+}
+
+
+function isLetterOrDigit(char) {
+    return isDigit(char) || isLetter(char);
+}
+
+
+function isSpecial(char) {
+    return !isLetterOrDigit(char) && !isSpace(char);
+}
+
+
+function isVowel(char) {
+    return 'aeouiAEOUI'.includes(char);
+}
+
 //  Task 1
 console.log('==========================================================\nTask 1:\n')
 
@@ -71,9 +118,11 @@ console.log(countConsonants("") )
 //  Task 5
 console.log('==========================================================\nTask 5:\n')
 
-function countWords(str) {
-    return str.trim().split(' ').length
-}
+// function countWords(str) {
+//     return str.trim().split(' ').length
+// }
+
+const countWords = (str) => str.trim().split(/\s+/).length;
 
 console.log(countWords("     Javascript is fun       "))
 console.log(countWords("Cypress is an UI automation tool.    ") )
@@ -235,5 +284,68 @@ console.log(findClosestTo10([0, -1, -2]))
 //  Task 14
 console.log('==========================================================\nTask 14:\n')
 
+/*
+NOTE: A VALID EMAIL:
+•should NOT have any space.
+•should not have more than one “@” character.
+•should be in the given format <2+chars>@<2+chars>.<2+chars> meaning
+    •There should be at least characters before @ character.
+    •There should be at least 2 characters between @ and . 
+    Characters.
+    •There should be at least 2 characters after the . character.
+*/
+
+function isEmailValid(email) {
+    if (!email.includes('@') || !email.includes('.') || email.includes(' ') || email.split('@').length !== 2) {
+        return false;
+    }
+    const [localPart, domainPart, url] = email.split(/[.@]+/);
+    if (localPart.length < 2 || domainPart.length < 2 || !url || url.length < 2) {
+        return false;
+    }
+    return true;
+}
+
+console.log(isEmailValid(""));  // false
+console.log(isEmailValid("@gmail.com"));  // false
+console.log(isEmailValid("johndoe@yahoo"));  // false
+console.log(isEmailValid("johndoe@.com"));  // false
+console.log(isEmailValid("a@outlook.com"));  // false
+console.log(isEmailValid("johndoe@a.com"));  // false
+console.log(isEmailValid("johndoe@@gmail.com"));  // false
+console.log(isEmailValid("johndoe@gmail.com"));  // true
+
+
 //  Task 15
 console.log('==========================================================\nTask 15:\n')
+
+function isPasswordValid(password) {
+    if (password.length < 8 || password.length > 16 || password.includes(' ')) return false;
+
+    let upperCount = 0;
+    let digitCount = 0;
+    let lowerCount = 0;
+    let specialCount = 0;
+
+    for (const char of password) {
+        if (char >= '0' && char <= '9') digitCount++;
+        else if (char >= 'a' && char <= 'z') lowerCount++;
+        else if (char >= 'A' && char <= 'Z') upperCount++;
+        else specialCount++;
+    }
+
+    if (upperCount === 0 || digitCount === 0 || lowerCount === 0 || specialCount === 0) {
+        return false;
+    }
+
+    return true;
+}
+
+console.log(isPasswordValid(""));                // false
+console.log(isPasswordValid("abcd"));            // false
+console.log(isPasswordValid("abcd1234"));        // false
+console.log(isPasswordValid("Abcd1234"));        // false
+console.log(isPasswordValid("Chicago12345US!#$%"));// true
+console.log(isPasswordValid("Abcd1234$"));       // true
+console.log(isPasswordValid("Chicago123$"));      // false
+console.log(isPasswordValid("Test1234#"));        // false
