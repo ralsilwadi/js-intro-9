@@ -217,8 +217,6 @@ console.log('==========================================================\nTask 13
 // }
 
 function findClosestTo10(arr) {
-    let tenDiff = Infinity
-    let closeDiff = Infinity
     let closest = Infinity
     for (const value of arr) {
         let tenDiff = Math.abs(10 - value);
