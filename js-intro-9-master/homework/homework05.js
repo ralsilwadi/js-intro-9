@@ -298,7 +298,7 @@ console.log(isPasswordValid(""));                // false
 console.log(isPasswordValid("abcd"));            // false
 console.log(isPasswordValid("abcd1234"));        // false
 console.log(isPasswordValid("Abcd1234"));        // false
-console.log(isPasswordValid("Chicago12345US!#$%"));// true
+console.log(isPasswordValid("Chicago12345US!#$%"));// false
 console.log(isPasswordValid("Abcd1234$"));       // true
-console.log(isPasswordValid("Chicago123$"));      // false
-console.log(isPasswordValid("Test1234#"));        // false
+console.log(isPasswordValid("Chicago123$"));      // true
+console.log(isPasswordValid("Test1234#"));        // true
