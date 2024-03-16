@@ -163,7 +163,7 @@ console.log('==========================================================\nTask 13
 
 const mostRepeated = (arr) => {
     const choices = [...new Set(arr)];
-    let mostR = choices[0];
+    let mostR;
     let longestAmount = 0;
 
     for (const element of choices) {
