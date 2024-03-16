@@ -12,7 +12,7 @@ console.log(noSpace("Tech Global") )
 //  Task 2
 console.log('==========================================================\nTask 2:\n')
 
-function replaceFirstLast(str) {
+const replaceFirstLast = (str) => {
     str = str.trim().split('');
     if (str.length < 2) return '';
     [str[0], str[str.length - 1]] = [str[str.length - 1], str[0]];
