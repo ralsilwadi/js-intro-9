@@ -132,6 +132,8 @@ const isDateFormatValid = (date) => {
     else return true
 }
 
+// const isDateFormatValid = date => date.includes('/') && (date = date.split('/')) && date[0].trim().length === 2 && date[1].trim().length === 2 && date[2].trim().length === 4;
+
 console.log(isDateFormatValid("") )
 console.log(isDateFormatValid("") )
 console.log(isDateFormatValid("10-30-2020 ") )
