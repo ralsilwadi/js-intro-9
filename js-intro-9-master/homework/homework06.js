@@ -125,14 +125,7 @@ console.log(removeDuplicates(["1", "2", "3", "2", "3"]) )
 //  Task 10
 console.log('==========================================================\nTask 10:\n')
 
-const isDateFormatValid = (date) => {
-    if (!date.includes('/')) return false
-    date = date.split('/')
-    if(date[0].trim().length !== 2 || date[1].trim().length !== 2 || date[2].trim().length !== 4) return false
-    else return true
-}
-
-// const isDateFormatValid = date => date.includes('/') && (date = date.split('/')) && date[0].trim().length === 2 && date[1].trim().length === 2 && date[2].trim().length === 4;
+const isDateFormatValid = date => date.includes('/') && (date = date.split('/')) && date[0].trim().length === 2 && date[1].trim().length === 2 && date[2].trim().length === 4;
 
 console.log(isDateFormatValid("") )
 console.log(isDateFormatValid("") )
