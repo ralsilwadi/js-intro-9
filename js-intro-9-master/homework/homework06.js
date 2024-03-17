@@ -6,7 +6,7 @@ const noSpace = (str) => str.trim().split(' ').join('')
 console.log(noSpace("") )
 console.log(noSpace("Javascript") )
 console.log(noSpace("    Hello   ") )
-console.log(noSpace(" Hello World   ") )
+console.log(noSpace(" Hello    World   ") )
 console.log(noSpace("Tech Global") )
 
 //  Task 2
@@ -29,7 +29,9 @@ console.log(replaceFirstLast("    A      ") )
 //  Task 3
 console.log('==========================================================\nTask 3:\n')
 
-const hasVowel = (str) => str.toLowerCase().split('').some(char => ['a', 'e', 'i', 'o', 'u'].includes(char));
+// const hasVowel = (str) => str.toLowerCase().split('').some(char => ['a', 'e', 'i', 'o', 'u'].includes(char));
+const hasVowel = (str) => str.toLowerCase().includes('a') || str.includes('e') || str.includes('i') || str.includes('o') || str.includes('u');
+
 
 console.log(hasVowel("")) 
 console.log(hasVowel("Javascript")) 
