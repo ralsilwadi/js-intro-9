@@ -114,7 +114,10 @@ console.log(countPrimes([41, 53, 19, 47, 67]) )
 //  Task 9
 console.log('==========================================================\nTask 9:\n')
 
-const removeDuplicates = (arr) => [...new Set(arr)];
+   const removeDuplicates = (arr) => [...new Set(arr)];
+// const removeDuplicates = (arr) => arr.reduce((newArr, el) => !newArr.includes(el) ? newArr.concat(el) : newArr, [])
+// const removeDuplicates = (arr) => arr.filter((el, index) => arr.indexOf(el) === index);
+
 
 console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60]) )
 console.log(removeDuplicates([1, 2, 5, 2, 3]) )
@@ -126,6 +129,11 @@ console.log(removeDuplicates(["1", "2", "3", "2", "3"]) )
 console.log('==========================================================\nTask 10:\n')
 
 const isDateFormatValid = date => date.includes('/') && (date = date.split('/')) && date[0].trim().length === 2 && date[1].trim().length === 2 && date[2].trim().length === 4;
+
+// const isDateFormatValid = date => {
+//     const [day, month, year] = date.split('/')
+//     return (day.trim().length === 2 && month.trim().length === 2 && year.trim().length === 4)
+// }
 
 console.log(isDateFormatValid("") )
 console.log(isDateFormatValid("") )
