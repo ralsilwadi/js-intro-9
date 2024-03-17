@@ -182,6 +182,26 @@ const mostRepeated = (arr) => {
     return mostR;
 };
 
+// const mostRepeated = (arr) => {
+//     const counts = {};
+
+//     arr.forEach(element => {
+//         counts[element] = (counts[element] || 0) + 1;
+//     });
+
+//     let mostRepeatedElement;
+//     let maxCount = 0;
+
+//     Object.entries(counts).forEach(([element, count]) => {
+//         if (count > maxCount) {
+//             maxCount = count;
+//             mostRepeatedElement = element;
+//         }
+//     });
+
+//     return mostRepeatedElement;
+// };
+
 
 console.log(mostRepeated([4, 7, 4, 4, 4, 23, 23, 23]) )
 console.log(mostRepeated(["pen", "pencil", "pen", "123", "abc", "pen", "pencil"]))
