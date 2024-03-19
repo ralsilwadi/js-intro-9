@@ -130,16 +130,17 @@ console.log(removeDuplicates(["1", "2", "3", "2", "3"]) )
 //  Task 10
 console.log('==========================================================\nTask 10:\n')
 
-const isDateFormatValid = date => date.includes('/') && (date = date.split('/')) && date[0].trim().length === 2 && date[1].trim().length === 2 && date[2].trim().length === 4;
+// const isDateFormatValid = date => date.includes('/') && (date = date.split('/')) && date[0].trim().length === 2 && date[1].trim().length === 2 && date[2].trim().length === 4;
 
-// const isDateFormatValid = date => {
-//     const [day, month, year] = date.split('/')
-//     return (day.trim().length === 2 && month.trim().length === 2 && year.trim().length === 4)
-// }
+const isDateFormatValid = date => {
+    const [month, day, year] = date.split('/')
+    if (month > 12 || day > 31) return false
+    return (month.trim().length === 2 && day.trim().length === 2 && year.trim().length === 4)
+}
 
 console.log(isDateFormatValid("") )
 console.log(isDateFormatValid("") )
-console.log(isDateFormatValid("10-30-2020 ") )
+console.log(isDateFormatValid("15-30-2020 ") )
 console.log(isDateFormatValid("10.30.2020") )
 console.log(isDateFormatValid("5/30/2020") )
 console.log(isDateFormatValid("05/30/2020 "))
