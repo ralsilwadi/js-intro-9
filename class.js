@@ -1,22 +1,33 @@
-class Person {
-    eat() {
-        console.log('EAT');
+class Author {
+    constructor(firstName, lastName, country, books) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.country = country;
+        this.books = books;
     }
-    sleep() {
-        console.log('SLEEP');
+
+    getFullName() {
+        console.log(`${this.firstName} ${this.lastName}`);
+    }
+
+    getBooks() {
+        console.log(this.books);
     }
 }
 
-class Singer extends Person{
-    sing() {
-        console.log('SING');
+class Book {
+    constructor(title, genre, pages) {
+        this.title = title;
+        this.genre = genre;
+        this.pages = pages;
     }
 }
 
-Singer.prototype = Object.create(Person.prototype);
+const book1 = new Book('A Game of Thrones', 'Epic Fantasy', 694);
+const book2 = new Book('A Clash of Kings', 'Epic Fantasy', 768);
+const book3 = new Book('A Storm of Swords', 'Epic Fantasy', 973);
 
-const singer1 = new Singer();
+const author1 = new Author('George R. R.', 'Martin', 'United States', [book1, book2, book3]);
 
-singer1.sing();
-singer1.eat();
-singer1.sleep();
+author1.getFullName();
+author1.getBooks();
