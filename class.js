@@ -1,33 +1,86 @@
-class Author {
-    constructor(firstName, lastName, country, books) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.country = country;
-        this.books = books;
-    }
-
-    getFullName() {
-        console.log(`${this.firstName} ${this.lastName}`);
-    }
-
-    getBooks() {
-        console.log(this.books);
-    }
+function goToCostco() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (true) resolve();
+      else reject();
+    }, 2000);
+  });
+}
+function getMeat() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (true) resolve();
+      else reject("Could not get the meat, Costco was closed!");
+    }, 1500);
+  });
+}
+function cook() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (true) resolve();
+      else reject("Cooking did not go well!");
+    }, 3000);
+  });
+}
+function serve() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (true) resolve();
+      else reject("Plates Broke");
+    }, 1000);
+  });
+}
+function eat() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (!true) resolve();
+      else reject("Too full");
+    }, 500);
+  });
 }
 
-class Book {
-    constructor(title, genre, pages) {
-        this.title = title;
-        this.genre = genre;
-        this.pages = pages;
-    }
+async function test() {
+  try {
+    await goToCostco();
+    await getMeat();
+    await cook();
+    await serve();
+    await eat();
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-const book1 = new Book('A Game of Thrones', 'Epic Fantasy', 694);
-const book2 = new Book('A Clash of Kings', 'Epic Fantasy', 768);
-const book3 = new Book('A Storm of Swords', 'Epic Fantasy', 973);
+function test1() {
+  goToCostco()
+    .then((data) => {
+      getMeat()
+        .then((data) => {
+          cook()
+            .then((data) => {
+              serve()
+                .then((data) => {
+                  eat()
+                    .then((data) => {})
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
-const author1 = new Author('George R. R.', 'Martin', 'United States', [book1, book2, book3]);
-
-author1.getFullName();
-author1.getBooks();
+test1();
